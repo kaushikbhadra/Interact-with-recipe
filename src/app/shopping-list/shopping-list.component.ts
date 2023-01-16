@@ -8,7 +8,11 @@ import { Ingerdient } from '../shared/ingredient-model';
 })
 export class ShoppingListComponent {
   ingredients: Ingerdient[] = [
-    new Ingerdient("panner", 250),
-    new Ingerdient("haldi", 5),
+    new Ingerdient('panner', 250),
+    new Ingerdient('haldi', 5),
   ];
+
+  onIngredientAdd(ingredient: Ingerdient) {
+    this.ingredients.push(ingredient);
+  }
 }
