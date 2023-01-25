@@ -1,3 +1,4 @@
+import { EventEmitter } from '@angular/core';
 import { Recipe } from './recipe.model';
 
 export class RecipeService {
@@ -18,6 +19,8 @@ export class RecipeService {
       'https://as1.ftcdn.net/v2/jpg/02/35/39/28/1000_F_235392875_cb19YhmNwIGEgCpiHLtH5hsYmszWsM5L.jpg'
     ),
   ];
+
+  selectedRecipe = new EventEmitter<Recipe>();
 
   getRecipes() {
     return this.recipes.slice();
