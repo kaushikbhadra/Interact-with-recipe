@@ -1,39 +1,20 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
 })
-export class RecipeListComponent {
-  recipes: Recipe[] = [
-    new Recipe(
-      'panner tikka masala',
-      'made with cow milk product.',
-      'https://live.staticflickr.com/7400/10213777266_d62f554fd0_b.jpg'
-    ),
-    new Recipe(
-      'panner tikka masala',
-      'made with cow milk product.',
-      'https://live.staticflickr.com/7400/10213777266_d62f554fd0_b.jpg'
-    ),
-    new Recipe(
-      'panner tikka masala',
-      'made with cow milk product.',
-      'https://live.staticflickr.com/7400/10213777266_d62f554fd0_b.jpg'
-    ),
-    new Recipe(
-      'panner tikka masala',
-      'made with cow milk product.',
-      'https://live.staticflickr.com/7400/10213777266_d62f554fd0_b.jpg'
-    ),
-    new Recipe(
-      'panner tikka masala',
-      'made with cow milk product.',
-      'https://live.staticflickr.com/7400/10213777266_d62f554fd0_b.jpg'
-    ),
-  ];
+export class RecipeListComponent implements OnInit {
+  recipes: Recipe[] = [];
+
+  constructor(private recipeService: RecipeService){}
+
+  ngOnInit(): void {
+    this.recipes = this.recipeService.getRecipes();
+  }
 
   @Output() recipeWasSelected = new EventEmitter<Recipe>();
 
