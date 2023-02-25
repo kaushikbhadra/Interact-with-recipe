@@ -12,7 +12,7 @@ export class RecipeService {
     new Recipe(
       'Panner Tikka Masala',
       'made with cow milk product.',
-      'https://live.staticflickr.com/7400/10213777266_d62f554fd0_b.jpg',
+      'https://i0.wp.com/www.cookingfromheart.com/wp-content/uploads/2017/03/Paneer-Tikka-Masala-3.jpg?resize=1024%2C755',
       [
         new Ingerdient('Panner', 250),
         new Ingerdient('Milk', 100),
@@ -45,6 +45,12 @@ export class RecipeService {
   ];
 
   constructor(private slService: ShoppingListService) {}
+
+  setRecipe(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice()); //update given recipe list and show copy of new list
+  }
+
 
   getRecipes() {
     return this.recipes.slice();
