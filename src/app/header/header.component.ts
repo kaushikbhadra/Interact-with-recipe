@@ -13,6 +13,6 @@ export class HeaderComponent {
   }
 
   onFetchData() {
-    this.dataStore.fetchData();
+    this.dataStore.fetchData().subscribe();
   }
 }
