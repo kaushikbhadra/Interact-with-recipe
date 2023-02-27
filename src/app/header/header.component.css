@@ -1,0 +1,4 @@
+.navbar-default .navbar-nav>li>a.a-hover:active,
+.navbar-default .navbar-nav>li>a.a-hover:hover {
+  color: red;
+}
