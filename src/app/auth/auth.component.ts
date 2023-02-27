@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 })
 export class AuthComponent {
   isLoginMode = true;
-  error!:string;
+  error!: string;
   isLoading = false;
 
   constructor(private authService: AuthService) {}
@@ -28,14 +28,17 @@ export class AuthComponent {
 
     this.isLoading = true;
     if (this.isLoginMode) {
+      // this.authService.singUp(email, password).subscribe()
     } else {
       this.authService.singUp(email, password).subscribe(
         (response) => {
           console.log(response);
           this.isLoading = false;
         },
-        (error) => {
-          this.error = 'error is occured';
+        (errorMessage) => {
+          console.log(errorMessage);
+          this.error = errorMessage;
+
           this.isLoading = false;
         }
       );
