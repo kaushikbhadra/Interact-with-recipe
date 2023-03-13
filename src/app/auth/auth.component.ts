@@ -11,7 +11,7 @@ import { AuthResponseData, AuthService } from './auth.service';
 })
 export class AuthComponent {
   isLoginMode = true;
-  error!: string;
+  error!: string | null;
   isLoading = false;
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -47,5 +47,9 @@ export class AuthComponent {
       },
     });
     form.reset();
+  }
+
+  onHandleErrorClose() {
+    this.error = null;
   }
 }
