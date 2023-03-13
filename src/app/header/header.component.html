@@ -15,7 +15,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="isAuthenticated">
-        <li><a style="cursor: pointer" class="a-hover">LogOut</a></li>
+        <li><a style="cursor: pointer" class="a-hover" (click)="onLogOut()">LogOut</a></li>
         <li class="dropdown" appDropdown>
           <a style="cursor: pointer;" class="dropdown-toggle" role="button"
             >Manage <span class="caret"></span
